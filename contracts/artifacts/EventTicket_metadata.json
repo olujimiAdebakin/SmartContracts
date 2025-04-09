@@ -6,6 +6,17 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticketPrice",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [],
 				"name": "EndAt",
 				"outputs": [
@@ -29,6 +40,25 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "buyTicket",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -85,7 +115,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "ticketstamp",
+				"name": "timeRange",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -138,11 +168,11 @@
 	},
 	"sources": {
 		"contracts/eventsTicket.sol": {
-			"keccak256": "0x9e9a85dd72549986c4d24e1296fe6017b7565dd4e3732d6ff2c42ab7e39fc64e",
+			"keccak256": "0x9f545efcb1574162673416ff954dedf6779b15ca0676ba30ae5108b0164ccdec",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://aa7f3efe866c1ee5e32e587d6a3f4855ad0199513bf498d4fb6c78e63f911bc7",
-				"dweb:/ipfs/QmQov75TfD8hi713iMLTdcvSF8HygK8vxR4na3RqxeqXRz"
+				"bzz-raw://25068ed5bd08431cae32fbf2d7f7d8bf2ec86a8e1a967b41949a896f6ff6e927",
+				"dweb:/ipfs/QmTQB3ndvfaaSxcrwEQNwfGLBkLmEiiijFFdZVkhJp69xF"
 			]
 		}
 	},
