@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.29+commit.ab55807c"
 	},
 	"language": "Solidity",
 	"output": {
@@ -202,7 +202,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/combinedcalculator.sol": "Calculator"
+			"contracts/calculator.sol": "Calculator"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -216,12 +216,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/combinedcalculator.sol": {
-			"keccak256": "0xce8175aaf36ff906825c3040d99c880be4c0f2e6783ead5edf74f3a4cb4c2de2",
+		"contracts/ScientificCalculator.sol": {
+			"keccak256": "0x2097d37b9c32fb96e1ce9c155e6a9717828bbd6d4a3c740fecb123b2e1e1c47e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ce73f30b69d2e92ef7598cfd09fbc5ae20338b85e3abd0e6fd541265e6e4a2a9",
-				"dweb:/ipfs/QmS6Eb66HdkPsBMdjR1iphhzXbzYuMLe7TbrcJA3YzJwd6"
+				"bzz-raw://e337bb32f40f8c5509bfbed6c7bfb70a81919e0fe2349e9ad5327c65e10b181f",
+				"dweb:/ipfs/QmS1w4wgatDCgvR8RNKKKwaRpjEbVodmJqtXW4b1jANUAr"
+			]
+		},
+		"contracts/calculator.sol": {
+			"keccak256": "0x7d934b58c78a4ffd543385a69000d3426c8895d8358fb133e1f6eb75b1416244",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a6e379e8aec90593f668a6f2eb1b5a23e9824d899830e556161542a28063db5",
+				"dweb:/ipfs/QmR7fqFyRsa4kcc6W8MYhizfyp8HLbaZLZRz4vaTRuCV9w"
 			]
 		}
 	},
