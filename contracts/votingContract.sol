@@ -20,7 +20,7 @@ contract GasEfficientVoting {
     event ProposalExecuted(uint8 indexed proposalId, uint8 indexed currentTime);
     event ProposalCreated(uint8 indexed proposedId, bytes32 name);
 
-    // ✅ Helper: Convert string to bytes32
+    //  Helper: Convert string to bytes32
     function stringToBytes32(string memory source) public pure returns (bytes32 result) {
         bytes memory temp = bytes(source);
         if (temp.length == 0) {
@@ -32,7 +32,7 @@ contract GasEfficientVoting {
         }
     }
 
-    // ✅ Create proposal using bytes32 name
+    //  Create proposal using bytes32 name
     function createProposal(bytes32 name, uint32 duration) public {
         require(duration > 0, "Duration must be greater than 0");
 
@@ -51,7 +51,7 @@ contract GasEfficientVoting {
         emit ProposalCreated(proposalId, name);
     }
 
-    // ✅ Wrapper to create proposal using string (for Remix)
+    //  Wrapper to create proposal using string (for Remix)
     function createProposalWithString(string memory name, uint32 duration) external {
         bytes32 nameBytes = stringToBytes32(name);
         createProposal(nameBytes, duration);
