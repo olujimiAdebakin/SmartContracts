@@ -23,6 +23,7 @@ contract ERC20Token is IERC20 {
     mapping(address => uint256) private _balances;
     mapping(address => mapping(address => uint256)) private _allowances;
     
+    
     constructor(string memory tokenName, string memory tokenSymbol, uint8 tokenDecimals, uint256 initialSupply) {
         name = tokenName;
         symbol = tokenSymbol;
