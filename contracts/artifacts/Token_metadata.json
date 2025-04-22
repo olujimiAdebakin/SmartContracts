@@ -802,11 +802,11 @@
 			]
 		},
 		"contracts/CLBTOKEN.sol": {
-			"keccak256": "0x07a927660a5afa09b3d8524c1da46cc1dba2d288f15aa4fbacfc94c4cbb1e5bc",
+			"keccak256": "0x314b1edfe2d0cbcf8df419a538bf52551298aca69ecbd75a84732656139e3409",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://612d0e7b6ab5da8c48c4e384646c858ab2a4584399b19075764b0c175b59b1f0",
-				"dweb:/ipfs/QmU4iADSjSBXThVUnQydNGXX9SfJTAByjUHVHeUP2yncuE"
+				"bzz-raw://3d310b6b29565c976d6c9d3da5f7af1c6baae146f5501de4a7e0fd50986111c7",
+				"dweb:/ipfs/QmYFWLAR6G7UDzj9XmYgW9LRi2VXh3wcVyc6e8WmrbSA86"
 			]
 		}
 	},

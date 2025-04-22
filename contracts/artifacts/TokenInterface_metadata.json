@@ -177,11 +177,11 @@
 			]
 		},
 		"contracts/dynamicStakingtoken.sol": {
-			"keccak256": "0xb70f9367fff51432e415d8d4175efa19bfded8154225aecb65024c3f7f80cccb",
+			"keccak256": "0x96723b82c180b96507ef6410a71436f1329e44e068d401b79f72f7caa0f0b134",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://241fbc74d244e040b3ec7e91255cb9deadc1a8825c73e21c0382b7ac43c8d168",
-				"dweb:/ipfs/QmdmhLsASF8JHLeCqDZFkUx15C4qhz5VNw652TyiiAr7Lx"
+				"bzz-raw://dd6c5dcb935ba1ff47b4b958b5a465eb6828704022355e64763741ca609bf128",
+				"dweb:/ipfs/QmemsmvGBiSmzXSzAqiPdXFFqQsoxZi5wUPCvdffdweNXd"
 			]
 		}
 	},

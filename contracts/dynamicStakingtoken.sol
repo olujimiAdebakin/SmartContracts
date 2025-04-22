@@ -40,7 +40,7 @@ contract DynamicStake {
         ethUsdPriceFeed = AggregatorV3Interface(_priceFeedAddress);
     }
 
-    //Before stake, go to the token and Approve the amount to this contract transfer from you account
+    //Before stake, go to the token and Approve the amount to this contract transfer from your account
     function stake(uint256 _amount) external {
         require(_amount > 0, "Nothing to stake");
         require(myToken.allowance(msg.sender, address(this)) >= _amount, "Approve the token amount before stake");
