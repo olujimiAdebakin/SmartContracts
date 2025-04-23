@@ -40,6 +40,7 @@ contract GoldVault{
          uint256 amount = goldBalance[msg.sender];
         require(amount > 0,"No money to withdraw");
         
+        goldBalance[msg.sender] = 0;
         (bool success,) = msg.sender.call{value: amount}("");
         require(success, "ETH Transfer failed");
         }

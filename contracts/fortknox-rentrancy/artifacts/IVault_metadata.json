@@ -7,33 +7,9 @@
 		"abi": [
 			{
 				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
 				"name": "deposit",
 				"outputs": [],
 				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "goldBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -47,7 +23,7 @@
 				"inputs": [],
 				"name": "vulnerableWithdraw",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -64,7 +40,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/fortknox-rentrancy/goldVault.sol": "GoldVault"
+			"contracts/fortknox-rentrancy/goldThief.sol": "IVault"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -78,12 +54,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/fortknox-rentrancy/goldVault.sol": {
-			"keccak256": "0xa1a5a6fd70f53b46ae64b52a267e8220c496c0976e691a4b3e9af507cdaf20c9",
+		"contracts/fortknox-rentrancy/goldThief.sol": {
+			"keccak256": "0x699cc6fc202b00a490aabc8212989172676b59bb715c3dea76743770da5cc8c1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://606c009d709d4f5e3e1192d5c19a6822d8a94d5d942a895319348226dff9cc08",
-				"dweb:/ipfs/QmYXgpVCiAdi5G95FogVqwgVQuG8tbc84BRC9fC4c2mAtn"
+				"bzz-raw://807bbf645bc17eb0b386ff571ba7ca05fc0c51e7c1245b44adb8721ff9d90aac",
+				"dweb:/ipfs/QmX3SxEmmKbSXToECNPrLZbhQnfyEtedSQZjeBkuqmMZ8Z"
 			]
 		}
 	},
