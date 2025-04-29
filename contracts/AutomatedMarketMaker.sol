@@ -107,12 +107,114 @@ function addLiquidity(uint256 amountA, uint256 amountB) external {
 
 
 
+function removeLiquidity(uint256 liquidityToRemove) external returns (uint256 amountAOut, uint256 amountBOut) {
+    // Ensure the user is removing more than zero liquidity
+    require(liquidityToRemove > 0, "Liquidity to remove must be > 0");
+
+    // Check the user has enough LP tokens to remove the specified liquidity
+    require(balanceOf(msg.sender) >= liquidityToRemove, "Insufficient liquidity tokens");
+
+    // Get the total supply of LP tokens in existence
+    uint256 totalLiquidity = totalSupply();
+    require(totalLiquidity > 0, "No liquidity in the pool");
+
+    // Calculate how much tokenA and tokenB the user should receive based on their share
+    amountAOut = (liquidityToRemove * reserveA )/ totalLiquidity;
+    amountBOut = (liquidityToRemove * reserveB) / totalLiquidity;
+
+    // Ensure the calculated output is non-zero (i.e., reserves aren't too low)
+    require(amountAOut > 0 && amountBOut > 0, "Insufficient reserves for requested liquidity");
+
+    // Update the internal reserves to reflect the withdrawal
+    reserveA -= amountAOut;
+    reserveB -= amountBOut;
+
+    // Burn the LP tokens from the user, reducing their pool ownership
+    _burn(msg.sender, liquidityToRemove);
+
+    // Transfer the underlying tokens back to the user
+    tokenA.transfer(msg.sender, amountAOut);
+    tokenB.transfer(msg.sender, amountBOut);
+
+    // Emit an event to log the removal of liquidity
+    emit LiquidityRemoved(msg.sender, amountAOut, amountBOut, liquidityToRemove);
+
+    // Return the amounts of tokens withdrawn
+    return (amountAOut, amountBOut);
+}
 
 
 
+function swapAforB(uint256 amountAIn, uint256 minBOut) external {
+    // Make sure input amount is non-zero
+    require(amountAIn > 0, "Amount must be > 0");
+
+    // Check if reserves are available to make a swap
+    require(reserveA > 0 && reserveB > 0, "Insufficient reserves");
+
+    // Apply a 0.3% fee (commonly used in DEXs like Uniswap)
+    uint256 amountAInWithFee = amountAIn * 997 / 1000;
+
+    // Constant product formula: x * y = k => calculate output
+    uint256 amountBOut = reserveB * amountAInWithFee / (reserveA + amountAInWithFee);
+
+    // Ensure output meets user's minimum expected amount (slippage protection)
+    require(amountBOut >= minBOut, "Slippage too high");
+
+    // Transfer tokenA from user to contract
+    tokenA.transferFrom(msg.sender, address(this), amountAIn);
+
+    // Transfer tokenB to the user
+    tokenB.transfer(msg.sender, amountBOut);
+
+    // Update reserves: add effective tokenA amount (after fee), reduce tokenB
+    reserveA += amountAInWithFee;
+    reserveB -= amountBOut;
+
+    // Emit event to log the swap
+    emit TokensSwapped(msg.sender, address(tokenA), amountAIn, address(tokenB), amountBOut);
+}
 
 
-          
+
+ 
+function swapBforA(uint256 amountBIn, uint256 minAOut) external {
+    // Check for valid input
+    require(amountBIn > 0, "Amount must be > 0");
+
+    // Ensure reserves exist
+    require(reserveA > 0 && reserveB > 0, "Insufficient reserves");
+
+    // Apply 0.3% fee to input
+    uint256 amountBInWithFee = amountBIn * 997 / 1000;
+
+    // Calculate output amount using constant product formula
+    uint256 amountAOut = reserveA * amountBInWithFee / (reserveB + amountBInWithFee);
+
+    // Ensure slippage isn't too high
+    require(amountAOut >= minAOut, "Slippage too high");
+
+    // Take tokenB from sender
+    tokenB.transferFrom(msg.sender, address(this), amountBIn);
+
+    // Send tokenA to sender
+    tokenA.transfer(msg.sender, amountAOut);
+
+    // Update reserves accordingly
+    reserveB += amountBInWithFee;
+    reserveA -= amountAOut;
+
+    // Emit swap event
+    emit TokensSwapped(msg.sender, address(tokenB), amountBIn, address(tokenA), amountAOut);
+}
+
+
+
+function getReserves() external view returns (uint256, uint256) {
+    // Allow external users to view the current reserves of tokenA and tokenB
+    return (reserveA, reserveB);
+}
+         
 
 }
   
